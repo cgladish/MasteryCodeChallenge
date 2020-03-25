@@ -34,4 +34,4 @@ export function* watchModifyLoadStatus() {
     }
 }
 
-export const sagas = [watchFetch, watchModifyLoadStatus];
+export const sagas = [watchFetch(), watchModifyLoadStatus()];

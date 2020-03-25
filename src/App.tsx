@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Header } from './components/Header';
+import { LoadBoard } from './components/LoadBoard';
 import './App.css';
 
 export const App = () => (
@@ -8,6 +9,6 @@ export const App = () => (
         <header className="app-header">
             <Header />
         </header>
-        <body />
+        <LoadBoard />
     </div>
 );

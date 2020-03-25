@@ -1,0 +1,37 @@
+.load-board {
+    margin: 1em 2em;
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+
+.load-row {
+    display: flex;
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.load-row:not(:last-child) {
+    border-bottom: 1px solid #000;
+}
+
+.load-row > div {
+    width: 200px;
+    padding: 0.25em 0.5em;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.load-row:hover {
+    background: #cde2e6;
+}
+
+.load-header-row {
+    font-weight: 600;
+    cursor: default;
+    background: #cde2e6;
+}
+
+.load-header-row:hover {
+    background: #cde2e6;
+}

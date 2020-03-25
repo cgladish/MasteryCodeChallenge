@@ -5,13 +5,14 @@ import {
     ThunkAction,
     Action,
 } from '@reduxjs/toolkit';
+import { compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
 import * as loads from './resources/loads';
 
-const reducer = combineReducers({
-    [loads.namespace]: loads.reducer,
+const rootReducer = combineReducers({
+    loads: loads.reducer,
 });
 
 function* rootSaga() {
@@ -19,8 +20,13 @@ function* rootSaga() {
 }
 
 const sagaMiddleware = createSagaMiddleware();
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+const composeEnhancers = (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+export const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
+);
 sagaMiddleware.run(rootSaga);
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
+export type Dispatch = typeof store.dispatch;
 export type AppThunk = ThunkAction<void, RootState, unknown, Action<string>>;

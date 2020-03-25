@@ -1,7 +1,5 @@
 import { ResourceStatus } from 'store/resources/types';
 
-export const namespace = 'loads';
-
 export type LoadEquipment = 'V' | 'R' | 'F';
 
 export type LoadStatus = 'available' | 'booked';
