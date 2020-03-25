@@ -2,12 +2,11 @@ import { actionChannel, take, call, put } from 'redux-saga/effects';
 
 import * as A from './actions';
 import * as R from './resources';
-import { mockLoadsById } from './__mockData__';
 
 export function* handleFetch() {
     yield put({ type: '@@loads/FETCH_START' });
-    yield call(R.fetch);
-    yield put({ type: '@@loads/FETCH_SUCCESS', payload: mockLoadsById });
+    const loadsById = yield call(R.fetch);
+    yield put({ type: '@@loads/FETCH_SUCCESS', payload: loadsById });
 }
 
 export function* watchFetch() {
@@ -15,7 +14,7 @@ export function* watchFetch() {
     yield call(handleFetch);
 }
 
-export function* modifyLoadStatus(action: A.ModifyLoadStatusAction) {
+export function* handleModifyLoadStatus(action: A.ModifyLoadStatusAction) {
     yield put({ type: '@@loads/MODIFY_LOAD_STATUS_START' });
     yield call(R.modify);
     yield put({
@@ -31,7 +30,7 @@ export function* watchModifyLoadStatus() {
     const channel = yield actionChannel('@@loads/MODIFY_LOAD_STATUS');
     while (true) {
         const action: A.ModifyLoadStatusAction = yield take(channel);
-        yield call(modifyLoadStatus, action);
+        yield call(handleModifyLoadStatus, action);
     }
 }
 
