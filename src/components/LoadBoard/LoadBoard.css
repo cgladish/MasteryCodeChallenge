@@ -1,37 +1,12 @@
 .load-board {
-    margin: 1em 2em;
-    border: 1px solid #000;
-    border-radius: 2px;
+    padding: 1em 2em;
 }
 
-.load-row {
-    display: flex;
-    font-size: 1.25em;
+.load-board table {
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 8px 0 rgba(0,0,0,0.19);
+}
+
+.load-board-row:hover {
     cursor: pointer;
-}
-
-.load-row:not(:last-child) {
-    border-bottom: 1px solid #000;
-}
-
-.load-row > div {
-    width: 200px;
-    padding: 0.25em 0.5em;
-    overflow: hidden;
-    white-space:nowrap;
-    text-overflow: ellipsis;
-}
-
-.load-row:hover {
-    background: #cde2e6;
-}
-
-.load-header-row {
-    font-weight: 600;
-    cursor: default;
-    background: #cde2e6;
-}
-
-.load-header-row:hover {
     background: #cde2e6;
 }

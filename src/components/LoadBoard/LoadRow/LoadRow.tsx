@@ -3,14 +3,14 @@ import * as React from 'react';
 import { Props } from './LoadRow.props';
 
 export const LoadRow = (props: Props) => (
-    <div className="load-row" onClick={props.onClick}>
-        <div className="load-row-id">{props.load.id}</div>
-        <div className="load-row-origin">{props.load.origin}</div>
-        <div className="load-row-destination">{props.load.destination}</div>
-        <div className="load-row-date">{props.load.date}</div>
-        <div className="load-row-value">{props.load.value}</div>
-        <div className="load-row-equipment">{props.load.equipment}</div>
-        <div className="load-row-locked">{props.load.locked ? 'yes' : 'no'}</div>
-        <div className="load-row-status">{props.load.status}</div>
-    </div>
+    <tr className="load-board-row" onClick={props.onClick}>
+        <td>{props.load.id}</td>
+        <td>{props.load.origin}</td>
+        <td>{props.load.destination}</td>
+        <td>{props.load.date}</td>
+        <td>{props.load.value}</td>
+        <td>{props.load.equipment}</td>
+        <td>{props.load.locked ? 'yes' : 'no'}</td>
+        <td>{props.load.status}</td>
+    </tr>
 );
