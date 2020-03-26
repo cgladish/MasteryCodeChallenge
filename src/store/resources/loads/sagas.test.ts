@@ -1,6 +1,6 @@
 import { actionChannel, take, call, put } from 'redux-saga/effects';
 
-import * as R from './resources';
+import * as R from './requests';
 import * as S from './sagas';
 import { modifyLoadStatusAction, mockLoadsById } from './__mockData__';
 

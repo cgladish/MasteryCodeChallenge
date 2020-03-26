@@ -1,7 +1,7 @@
 import { actionChannel, take, call, put } from 'redux-saga/effects';
 
 import * as A from './actions';
-import * as R from './resources';
+import * as R from './requests';
 
 export function* handleFetch() {
     yield put({ type: '@@loads/FETCH_START' });
