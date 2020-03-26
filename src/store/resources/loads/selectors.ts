@@ -19,7 +19,7 @@ export const getLoadsById = createSelector(
 
 export const getIsFetching = createSelector(
     [getFetchStatus],
-    fetchStatus => fetchStatus === 'pending'
+    fetchStatus => fetchStatus !== 'success'
 );
 
 export const getIsModifying = createSelector(

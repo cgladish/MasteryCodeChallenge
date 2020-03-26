@@ -31,26 +31,36 @@ describe('loads resource selectors', () => {
     });
 
     describe('gets whether loads are being fetched', () => {
-        it('when they are not being fetched', () => {
-            const state = createState({ fetchStatus: 'success' });
-            expect(S.getIsFetching(state)).toEqual(false);
+        it('when they have not yet loaded', () => {
+            const state = createState({ fetchStatus: 'initial' });
+            expect(S.getIsFetching(state)).toEqual(true);
         });
 
         it('when they are being fetched', () => {
             const state = createState({ fetchStatus: 'pending' });
             expect(S.getIsFetching(state)).toEqual(true);
         });
+
+        it('when they have loaded', () => {
+            const state = createState({ fetchStatus: 'success' });
+            expect(S.getIsFetching(state)).toEqual(false);
+        });
     });
 
     describe('gets whether loads are being modified', () => {
         it('when they are not being modified', () => {
-            const state = createState({ modifyStatus: 'success' });
+            const state = createState({ modifyStatus: 'initial' });
             expect(S.getIsModifying(state)).toEqual(false);
         });
 
         it('when they are being modified', () => {
             const state = createState({ modifyStatus: 'pending' });
             expect(S.getIsModifying(state)).toEqual(true);
+        });
+
+        it('when they have finished being modified', () => {
+            const state = createState({ modifyStatus: 'success' });
+            expect(S.getIsModifying(state)).toEqual(false);
         });
     });
 });
