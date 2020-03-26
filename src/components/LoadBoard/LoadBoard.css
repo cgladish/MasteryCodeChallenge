@@ -1,9 +1,15 @@
+.load-board-fetching {
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+}
+
 .load-board {
     padding: 1em 2em;
 }
 
 .load-board table {
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 8px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
 .load-board-row:hover {
