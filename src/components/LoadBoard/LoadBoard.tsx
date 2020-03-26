@@ -12,17 +12,16 @@ export const LoadBoard = (props: Props) => {
 
     const [selectedLoad, setSelectedLoad] = React.useState<null | Load>(null);
 
+    const onCloseModal = () => {
+        setSelectedLoad(null);
+    };
+
     React.useEffect(
         () => {
             fetchLoads();
         },
         [fetchLoads]
     );
-
-    const onCloseModal = () => {
-        setSelectedLoad(null);
-    };
-
     React.useEffect(
         () => {
             if (!isModifying) {
@@ -34,14 +33,14 @@ export const LoadBoard = (props: Props) => {
 
     if (props.isFetching) {
         return (
-            <div className="load-board-fetching">
+            <div className="w-100 mt-4 text-center">
                 <Spinner color="primary" />
             </div>
         );
     }
 
     return (
-        <div className="load-board">
+        <div className="load-board py-2 px-4">
             <Table>
                 <thead>
                     <tr>

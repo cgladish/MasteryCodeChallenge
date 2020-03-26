@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { RootState, Dispatch } from 'store/store';
+import { RootState, Dispatch } from 'store';
 import * as loads from 'store/resources/loads';
 import { getSortedLoads } from './selectors';
 import { StateProps, DispatchProps } from './LoadBoard.props';

@@ -32,16 +32,23 @@ export const LoadModal = (props: Props) => {
         <Modal isOpen={true} toggle={props.onClose}>
             <ModalHeader>Load #{props.load.id}</ModalHeader>
             <ModalBody>
-                Load Status:
-                <Input
-                    type="select"
-                    onChange={onChangeSelectedStatus}
-                    value={selectedStatus}
-                    disabled={props.isModifying || props.load.locked}
-                >
-                    <option>booked</option>
-                    <option>available</option>
-                </Input>
+                {props.load.locked && (
+                    <div className="text-danger mb-2">
+                        This load is currently locked.
+                    </div>
+                )}
+                <div>
+                    Load Status:
+                    <Input
+                        type="select"
+                        onChange={onChangeSelectedStatus}
+                        value={selectedStatus}
+                        disabled={props.isModifying || props.load.locked}
+                    >
+                        <option>booked</option>
+                        <option>available</option>
+                    </Input>
+                </div>
             </ModalBody>
             <ModalFooter>
                 <Button outline color="primary" onClick={props.onClose}>
