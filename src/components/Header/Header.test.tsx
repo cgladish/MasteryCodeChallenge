@@ -7,6 +7,6 @@ describe('Header', () => {
     it('mounts and renders', () => {
         const rendered = mount(<Header />);
 
-        expect(rendered.find('div').exists());
+        expect(rendered.find('div').exists()).toBeTruthy();
     });
 });

@@ -51,10 +51,17 @@ export const LoadModal = (props: Props) => {
                 </div>
             </ModalBody>
             <ModalFooter>
-                <Button outline color="primary" onClick={props.onClose}>
+                <Button
+                    id="cancel"
+                    outline
+                    color="primary"
+                    onClick={props.onClose}
+                    disabled={props.isModifying}
+                >
                     Cancel
                 </Button>
                 <Button
+                    id="confirm"
                     color={disableConfirm ? 'secondary' : 'primary'}
                     onClick={onConfirm}
                     disabled={disableConfirm}

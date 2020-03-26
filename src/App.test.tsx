@@ -13,6 +13,6 @@ describe('App', () => {
             </Provider>
         );
 
-        expect(rendered.find('div').exists());
+        expect(rendered.find('div').exists()).toBeTruthy();
     });
 });
