@@ -81,18 +81,22 @@ describe('LoadModal', () => {
 
     it('does not disable when not modifying', () => {
         const { rendered } = createMountedWrapper();
+        const modal = rendered.find('Modal');
         const input = rendered.find('Input');
         const buttons = rendered.find('Button');
 
+        expect((modal.props() as any).toggle).toBeTruthy();
         expect(input.props().disabled).toBeFalsy();
         expect(buttons.at(0).props().disabled).toBeFalsy();
     });
 
     it('disables all interactions when modifying', () => {
         const { rendered } = createMountedWrapper({ isModifying: true });
+        const modal = rendered.find('Modal');
         const input = rendered.find('Input');
         const buttons = rendered.find('Button');
 
+        expect((modal.props() as any).toggle).toBeFalsy();
         expect(input.props().disabled).toBeTruthy();
         expect(buttons.at(0).props().disabled).toBeTruthy();
         expect(buttons.at(1).props().disabled).toBeTruthy();

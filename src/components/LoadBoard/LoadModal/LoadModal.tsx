@@ -29,8 +29,11 @@ export const LoadModal = (props: Props) => {
     const disableConfirm = props.isModifying || !hasChanges;
 
     return (
-        <Modal isOpen={true} toggle={props.onClose}>
-            <ModalHeader>Load #{props.load.id}</ModalHeader>
+        <Modal
+            isOpen={true}
+            toggle={props.isModifying ? undefined : props.onClose}
+        >
+            <ModalHeader>Make Changes to Load #{props.load.id}</ModalHeader>
             <ModalBody>
                 {props.load.locked && (
                     <div className="text-danger mb-2">
